@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  uvncrepeater:
+    build:
+      context: .
+      dockerfile: docker/uvncrepeater/Dockerfile
+    volumes:
+      - .:/app/
+      - /var/log/uvncrepeater.log:/var/log/uvncrepeater.log
+      - /etc/uvnc/uvncrepeater.ini:/etc/uvnc/uvncrepeater.ini
+    stdin_open: true 
+    tty: true        
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app/
+      - /var/log/uvncrepeater.log:/var/log/uvncrepeater.log
+      - /etc/uvnc/uvncrepeater.ini:/etc/uvnc/uvncrepeater.ini
+    links:
+      - php
+    stdin_open: true 
+    tty: true       
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
+      - /var/log/uvncrepeater.log:/var/log/uvncrepeater.log
+      - /etc/uvnc/uvncrepeater.ini:/etc/uvnc/uvncrepeater.ini
+    stdin_open: true 
+    tty: true       
+
