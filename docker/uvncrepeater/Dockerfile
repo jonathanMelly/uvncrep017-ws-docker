@@ -14,7 +14,6 @@ RUN apt-get update --yes \
                     rsync \
                     x-window-system-core \
                     x-window-system \
-                    wget \
                     git
 
 CMD ["/bin/bash"]
