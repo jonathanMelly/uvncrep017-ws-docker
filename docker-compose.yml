@@ -7,8 +7,8 @@ services:
       dockerfile: docker/uvncrepeater/Dockerfile
     volumes:
       - .:/app/
-      - /var/log/uvncrepeater.log:/var/log/uvncrepeater.log
-      - /etc/uvnc/uvncrepeater.ini:/etc/uvnc/uvncrepeater.ini
+      - log_volume:/var/log/
+      - etc_uvnc_volume:/etc/uvnc/
     stdin_open: true 
     tty: true        
 
@@ -20,8 +20,8 @@ services:
       - "8080:80"
     volumes:
       - .:/app/
-      - /var/log/uvncrepeater.log:/var/log/uvncrepeater.log
-      - /etc/uvnc/uvncrepeater.ini:/etc/uvnc/uvncrepeater.ini
+      - log_volume:/var/log/
+      - etc_uvnc_volume:/etc/uvnc/
     links:
       - php
     stdin_open: true 
@@ -33,8 +33,11 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
-      - /var/log/uvncrepeater.log:/var/log/uvncrepeater.log
-      - /etc/uvnc/uvncrepeater.ini:/etc/uvnc/uvncrepeater.ini
+      - log_volume:/var/log/
+      - etc_uvnc_volume:/etc/uvnc/
     stdin_open: true 
     tty: true       
 
+volumes:
+  log_volume: {}
+  etc_uvnc_volume: {}
