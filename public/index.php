@@ -1,6 +1,6 @@
 <?php
-$vncFile=file("/var/log/uvncrepeater.log");
-$vncIniFile=file("/etc/uvnc/uvncrepeater.ini");
+$vncFile=file("/uvnc/var/log/uvncrepeater.log");
+$vncIniFile=file("/uvnc/etc/uvnc/uvncrepeater.ini");
 $string1="Virtual Address,Common Name,Real Address,Last Ref";
 $string2="GLOBAL STATS";
 $connected="vncWebInterface";

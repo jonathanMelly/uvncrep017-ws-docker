@@ -20,8 +20,8 @@ services:
       - "8080:80"
     volumes:
       - .:/app/
-      - log_volume:/var/log/
-      - etc_uvnc_volume:/etc/uvnc/
+      - log_volume:/uvnc/var/log/
+      - etc_uvnc_volume:/uvnc/etc/uvnc/
     links:
       - php
     stdin_open: true 
@@ -33,11 +33,11 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
-      - log_volume:/var/log/
-      - etc_uvnc_volume:/etc/uvnc/
+      - log_volume:/uvnc/var/log/
+      - etc_uvnc_volume:/uvnc/etc/uvnc/
     stdin_open: true 
     tty: true       
 
 volumes:
-  log_volume: {}
-  etc_uvnc_volume: {}
+  log_volume: 
+  etc_uvnc_volume:
