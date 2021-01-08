@@ -6,7 +6,6 @@ services:
       context: .
       dockerfile: docker/uvncrepeater/Dockerfile
     volumes:
-      - .:/app/
       - log_volume:/var/log/
       - etc_uvnc_volume:/etc/uvnc/
     stdin_open: true 
