@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: docker/uvncrepeater/Dockerfile
+    ports:
+      - "5901:5901"      
     volumes:
       - log_volume:/var/log/
       - etc_uvnc_volume:/etc/uvnc/

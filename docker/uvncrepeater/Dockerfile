@@ -35,7 +35,7 @@ RUN make clean && make \
 RUN useradd  -s /sbin/nologin uvncrep
 
 # porte su cui il container resta in ascolto nel mondo "docker", senza esposizione all'esterno
-EXPOSE 5500 5901
+EXPOSE 5500 
 
 # copia dei file necessari per il servizio
 WORKDIR /
