@@ -50,4 +50,4 @@ CMD ["chmod 644 /etc/uvnc/uvncrepeater.ini"]
 CMD ["chmod 777 /usr/bin/uvncrepeater_entrypoint.sh"]
 
 # esecuzione dello script di entrypoint il quale avvia il servizio
-ENTRYPOINT ["/usr/bin/uvncrepeater_entrypoint.sh"]
+ENTRYPOINT [ "/bin/sh", "/usr/bin/uvncrepeater_entrypoint.sh" ]
